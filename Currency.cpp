@@ -1,8 +1,8 @@
 // Currency.cpp
 
 #include <iostream>
-#include "currency.h"
-
+//#include "currency.h"
+#include "currency01.h"
 
 int main()
 {
