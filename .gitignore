@@ -2,4 +2,8 @@
 *.filters
 *.user
 *.dll
+*.log
 *.tlog
+*.idb
+*.pdb
+*.obj

@@ -8,6 +8,7 @@ int main()
 {
 	Currency g,h(plus,3,50),i,j;
 	g.Set(minus,2,25);
+	//g.Set(minus,2,100);
 	i.Set(-6.45);
 	//j = h.Add(g);
 	j = h + g;

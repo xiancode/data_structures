@@ -1,4 +1,4 @@
-﻿生成启动时间为 3/25/2014 4:16:28 PM。
+﻿生成启动时间为 3/25/2014 5:14:05 PM。
      1>项目“F:\data_structures\data_structures\data_structures.vcxproj”在节点 2 上(rebuild 个目标)。
      1>_PrepareForClean:
          正在删除文件“Debug\data_structures.lastbuildstate”。
@@ -7,8 +7,8 @@
        ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Currency.cpp
          Currency.cpp
-     1>f:\data_structures\data_structures\currency01.h(74): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
-     1>f:\data_structures\data_structures\currency.cpp(11): warning C4305: “参数”: 从“double”到“float”截断
+     1>f:\data_structures\data_structures\currency01.h(85): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+     1>f:\data_structures\data_structures\currency.cpp(12): warning C4305: “参数”: 从“double”到“float”截断
        ManifestResourceCompile:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\data_structures.exe.embed.manifest.res" Debug\data_structures_manifest.rc 
        Link:
@@ -29,4 +29,4 @@
 
 生成成功。
 
-已用时间 00:00:01.89
+已用时间 00:00:01.56

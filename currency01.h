@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-
+#include "exp.h"
 using namespace std;
 
 enum sign{plus,minus};
@@ -8,8 +8,11 @@ enum sign{plus,minus};
 class Currency
 {
 public:
+	// 构造函数
 	Currency(sign s = plus, unsigned long d = 0,unsigned int c = 0);
+	// 析构函数
 	~Currency(){};
+
 	bool Set(sign s,unsigned long d,unsigned int c);
 	bool Set(float a);
 
@@ -27,7 +30,6 @@ public:
 		else
 			return amount/100;
 	}
-
 	unsigned int Cents() const
 	{
 		if(amount < 0)
@@ -35,15 +37,23 @@ public:
 		else
 			return  amount-Dollars()*100;
 	}
-	Currency Add(const Currency& x) const;
+	
+	//Currency Add(const Currency& x) const;
 
-	Currency& Increment(const Currency&x)
+	//Currency& Increment(const Currency&x)
+	//{
+	//	amount += x.amount;
+	//	return *this;
+	//}
+
+	Currency operator+(const Currency& x) const;
+	Currency operator+=(const Currency& x)
 	{
 		amount += x.amount;
 		return *this;
 	}
 
-	void Output() const;
+	void Output(ostream& out) const;
 
 private:
 	long amount;
@@ -53,8 +63,9 @@ Currency::Currency(sign s /* = plus */,unsigned long d /* = 0 */,unsigned int c 
 {
 	if(c>99)
 	{
-		cerr << "Cents should be < 100" << endl;
-		exit(1);
+		//cerr << "Cents should be < 100" << endl;
+		//exit(1);
+		throw BadInitializers();
 	}
 	amount = d*100 + c;
 	if(s==minus)
@@ -77,35 +88,41 @@ bool Currency::Set(float a)
 	return true;
 }
 
-Currency Currency::Add(const Currency&x) const
+Currency Currency::operator+(const Currency&x) const
 {
 	Currency y;
 	y.amount =amount + x.amount;
 	return y;
 }
 
-void Currency::Output() const
+void Currency::Output(ostream& out) const
 {
 	long a = amount;
 	if(a<0)
 	{
-		cout << "-";
+		out << "-";
 		a = -a;
 	}
 	long d = a/100;
-	cout << "$" << d << '.';
+	out << "$" << d << '.';
 	int c = a - d*100;
 	if(c<10)
-		cout << "0";
-	cout << c;
+		out << "0";
+	out << c;
 }
 
 bool Currency::Set(sign s,unsigned long d,unsigned int c)
 {
 	if(c>99)
-		return false;
+		throw BadInitializers();
 	amount = d*100 + c;
 	if(s==minus)
 		amount = -amount;
 	return true;
+}
+
+ostream& operator<<(ostream& out,const Currency& x)
+{
+	x.Output(out);
+	return out;
 }
