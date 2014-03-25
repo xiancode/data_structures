@@ -76,6 +76,9 @@
   <ItemGroup>
     <ClCompile Include="Currency.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="currency.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
