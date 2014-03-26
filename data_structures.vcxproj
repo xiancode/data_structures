@@ -10,6 +10,9 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="outputroot.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C2B1327B-E121-435D-91B0-A22759CF20F9}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -73,13 +76,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Currency.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="currency01.h" />
-    <ClInclude Include="exp.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

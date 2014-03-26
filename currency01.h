@@ -1,3 +1,6 @@
+#ifndef Currency_
+#define Currency_
+
 #include <iostream>
 #include <string>
 #include "exp.h"
@@ -7,6 +10,7 @@ enum sign{plus,minus};
 
 class Currency
 {
+	friend ostream& operator<<(ostream&,const Currency&);
 public:
 	// 构造函数
 	Currency(sign s = plus, unsigned long d = 0,unsigned int c = 0);
@@ -54,6 +58,8 @@ public:
 	}
 
 	void Output(ostream& out) const;
+
+	
 
 private:
 	long amount;
@@ -121,8 +127,28 @@ bool Currency::Set(sign s,unsigned long d,unsigned int c)
 	return true;
 }
 
+// 运算符重载，不是友元函数
+//ostream& operator<<(ostream& out,const Currency& x)
+//{
+//	x.Output(out);
+//	return out;
+//}
+// 友元函数
 ostream& operator<<(ostream& out,const Currency& x)
 {
-	x.Output(out);
+	long a = x.amount;
+	if(a<0)
+	{
+		out << '-';
+		a = -a;
+	}
+	long d = a / 100;
+	out << '$'<< d << '.';
+	int c = a - d*100;
+	if(c<10)
+		out << '0';
+	out << c;
 	return out;
 }
+
+#endif
