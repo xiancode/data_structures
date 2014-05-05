@@ -1,0 +1,13 @@
+*.vcxproj
+*.filters
+*.user
+*.vspscc
+*.obj
+*.tlog
+*.log
+*.manifest
+*.res
+*.lastbuildstate
+*.idb
+*.pdb
+*.rc
